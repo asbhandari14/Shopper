@@ -28,7 +28,7 @@ const ShopContextProvider = (props) => {
     }
     
     
-    const contextValue = {all_product, cartItems, addToCart};
+    const contextValue = {all_product, cartItems, addToCart , removeFromCart};
 
 
     return(
