@@ -10,7 +10,7 @@ const Item = (props) => {
         </div>
         
         <div className="item-img">
-         <Link to={`/product/${props.id}`}> <img onClick={window.scrollTo(0, 0)} src={props.image} alt="" /> </Link>
+         <Link to={`/product/${props.id}`}> <img onClick={()=>{window.scrollTo(0, 0)}} src={props.image} alt="" /> </Link>
         </div>
 
         <div className="item-prices">

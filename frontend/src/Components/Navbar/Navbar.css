@@ -41,8 +41,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 0.4rem;
     cursor: pointer;
+}
+
+.nav-menu li:hover{
+    border-bottom: 2px solid red;
 }
 
 
@@ -53,20 +57,20 @@
 }
 
 .nav-login-cart button{
-    width: 9vw;
-    height: 7vh;
+    width: 5.6vw;                       /* changes done yesterday */
+    height: 5.7vh;                      /* changes done yesterday  */
     outline: none;
     border: 1px solid #7a7a7a;
     border-radius: 75px;
     color: #515151;
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 0.78rem;                  
+    font-weight: 500;                    /* changes done yesterday  */
     background-color: white;
     cursor: pointer;
 }
 
 .nav-login-cart img{
-    height: 5.7vh;
+    height: 4vh;                          /* changes done yesterday  */
 }
 
 .nav-login-cart button:active{
@@ -74,20 +78,16 @@
 }
 
 .nav-cart-count{
-    width: 22px;
-    height: 22px;
+    width: 14px;                             /* changes done yesterday  */
+    height: 14px;                             /* changes done yesterday  */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -35px;
-    margin-left: -55px;
-    border-radius: 11px;
-    font-size: 14px;
+    margin-top: -18px;                        /* changes done yesterday  */
+    margin-left: -50px;                        /* changes done yesterday  */
+    border-radius: 7px;                           /* changes done yesterday  */
+    font-size: 12px;                              /* changes done yesterday  */
     background-color: red;
     color: white;
 }
 
-
-.nav-menu li :hover{
-    color: red;
-}
