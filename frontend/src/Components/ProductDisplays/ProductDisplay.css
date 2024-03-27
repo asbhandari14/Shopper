@@ -1,7 +1,7 @@
 .productdisplay{
-
     display: flex;
     margin: 0px 170px;
+    height: 140vh;
 }
 
 
@@ -22,9 +22,11 @@
     height: 3%;
 }
 
+
 .productdisplay-main-img{
     /* height: 23%; */
     width: 95%;
+    height: auto;
 }
 
 
@@ -41,8 +43,9 @@
 }
 
 
-.productdisplay-right-stars{
+.productdisplay-right-star{
     display: flex;
+    flex-direction: row;
     align-items: center;
     margin-top: 13px;
     gap: 5px;
@@ -115,4 +118,24 @@
 
 .productdisplay-right-category span{
     font-weight: 600;
+}
+
+
+.productdisplay-right button :active{
+    background-color: #818181;
+}
+
+.cart_btn{
+    border-radius: 16px;
+}
+
+.cart_btn:hover{
+    background-color: white;
+    border: 3px solid red;
+    color: red;
+    border-radius: 16px;
+}
+
+.cart_btn:active{
+    background-color: lightcoral;
 }
