@@ -8,7 +8,13 @@ import Newsletter from "../Components/Newsletter/Newsletter";
 import axios from "axios";
 const Shop = () => {
   useEffect(()=>{
-    axios.get(`http://localhost:5000/products`).then((response)=>{
+    // axios.get(`http://localhost:5000/Products`).then((response)=>{
+    //   console.log(response.data)
+    // }).catch((e)=>{
+    //   console.log(e);
+    // })
+    axios.defaults.withCredentials = true;
+    axios.get(`http://localhost:5000/Profile`).then((response)=>{
       console.log(response.data)
     }).catch((e)=>{
       console.log(e);

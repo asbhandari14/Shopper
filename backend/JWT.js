@@ -1,6 +1,7 @@
 const jsonwebtoken = require("jsonwebtoken");
 require('dotenv').config();
-const User = require('./model/User')
+const User = require('./models/UsersInfoModel');
+const cookieParser = require("cookie-parser");
 const createTokens = (user)=>{
     const accessToken = jsonwebtoken.sign({
         username:user.username,

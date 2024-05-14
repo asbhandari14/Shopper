@@ -6,20 +6,31 @@ const productSchema = mongoose.Schema(
             type:String,
             required:true
         },
-        Price:{
+        ProductId:{
             type:Number,
-            required:true
-        },
-        discount:{
-            type:Number,
-            required:true
-        },
-        availability:{
-            type:Boolean,
             required:true
         },
         productDescription:{
             type:String,
+            required:true
+        },
+        Price:{
+            type:Number,
+            required:true
+        },
+        discountedPrice:{
+            type:Number,
+            required:true
+        },
+        sizes:{
+            type:Array,
+            required:true
+        },
+        tags:{
+         type:Array,   
+        },
+        stockSize:{
+            type:Number,
             required:true
         }
     },
