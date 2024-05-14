@@ -128,11 +128,11 @@ app.post('/registration',async (req,res)=>{
         app.post('/products',async (req,res)=>{
     
     
-            if(!req.body.email||
-                !req.body.password
-                ){
-                    return res.status(400).json(`enter all values`)
-                }
+            // if(!req.body.email||
+            //     !req.body.password
+            //     ){
+            //         return res.status(400).json(`enter all values`)
+            //     }
                 async function createProduct(){
                     try{
                         const myProduct = new MyProducts({ProductName:"Office Shirt",
