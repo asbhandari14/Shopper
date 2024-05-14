@@ -14,30 +14,30 @@ const userSchema = mongoose.Schema(
             type:String,
             required:true
         },
-        orderHistory:{
-            type:Array,
-            OrderId:{
-                type:String,
-                required:true
-            },
-            ProductId:{
-                type:Number,
-                required:true
-            },
-            SellingPrice:{
-                type:Number,
-                required:true
-            },
-            size:{
-                type:String,
-                required:true
-            },
-            AmountBought:{
-                type:Number,
-                required:true
-            }
+        // orderHistory:{
+        //     type:Array,
+        //     OrderId:{
+        //         type:String,
+        //         required:true
+        //     },
+        //     ProductId:{
+        //         type:Number,
+        //         required:true
+        //     },
+        //     SellingPrice:{
+        //         type:Number,
+        //         required:true
+        //     },
+        //     size:{
+        //         type:String,
+        //         required:true
+        //     },
+        //     AmountBought:{
+        //         type:Number,
+        //         required:true
+        //     }
             
-        }
+        // }
     },
     {
         timestamps:true,

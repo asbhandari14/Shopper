@@ -36,7 +36,7 @@ app.post('/registration',async (req,res)=>{
     console.log('registratio hit')
     const {email,name,password}= req.body;
     const userexists = await MyUsers.findOne({email:email});
-    if(!(req.body.email&&req.body.password)){
+    if(!(req.body.email&&req.body.password&&req.body.name)){
         return res.status(400).json(`enter all values`)
     }else if(userexists){
             return res.status(400).json(`user already exists`)

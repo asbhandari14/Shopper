@@ -19,6 +19,7 @@ const Signup = (props) => {
   
   function sendUserData(){
     const data = {
+      name:name,
       email:email,
       password:password
     }
