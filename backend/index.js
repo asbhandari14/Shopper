@@ -133,10 +133,16 @@ app.post('/registration',async (req,res)=>{
                 ){
                     return res.status(400).json(`enter all values`)
                 }
-                async function createUser(){
+                async function createProduct(){
                     try{
-                        const myProduct = new MyProducts({ProductName:req.body.ProductName,Price:req.body.Price,discountedPrice:req.body.discountedPrice,productDescription:req.body.productDescription,
-                            sizes:req.body.sizes,tags:req.body.tags
+                        const myProduct = new MyProducts({ProductName:"Office Shirt",
+                        ProductId:"33245",
+                        Price:999,
+                        discountedPrice:799,
+                        productDescription:"100% cotton office shirt",
+                        sizes:["M","S","XXL"],
+                        tags:["Mens" , "Office"],
+                        stockSize:280
                         }) 
                         await myProduct.save();
                         console.log(myProduct)
@@ -144,7 +150,7 @@ app.post('/registration',async (req,res)=>{
                         console.log(e)
                     }
                 }
-                createUser()
+                createProduct()
                 return res.status(200).send(`Product created`)
                 
             })
