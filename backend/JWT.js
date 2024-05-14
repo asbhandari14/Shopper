@@ -4,7 +4,7 @@ const User = require('./models/UsersInfoModel');
 const cookieParser = require("cookie-parser");
 const createTokens = (user)=>{
     const accessToken = jsonwebtoken.sign({
-        username:user.username,
+        email:user.email,
         id:user._id
     },
     process.env.ACCESS_TOKEN_SECRET
@@ -23,10 +23,10 @@ const validateToken =async (req,res,next)=>{
         const validToken = jsonwebtoken.verify(accessToken,process.env.ACCESS_TOKEN_SECRET);
         if(validToken){
             console.log('validtoken value is' ,validToken)
-            const userData = await User.findOne({username:validToken.username}).select({
+            const userData = await User.findOne({email:validToken.email}).select({
                 password:0
             });
-            
+            console.log('userdata is',userData)
             req.authenticated = true;
             req.user=userData;
             req.token=accessToken;
