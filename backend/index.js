@@ -9,6 +9,7 @@ const {createTokens,validateToken} = require('./JWT')
 const app = express();
 const bcrypt = require('bcrypt')
 const UsersInfoModel = require('./models/UsersInfoModel')
+const ProductsModel = require('./models/ProductsModel')
 app.use(cors({credentials:true,origin:'http://localhost:3000'}));
 app.use(cookieParser());
 // using cors
@@ -33,7 +34,7 @@ app.get('/',async (req,res)=>{
     
 })
 app.post('/registration',async (req,res)=>{
-    console.log('registratio hit')
+    console.log('registration hit')
     const {email,name,password}= req.body;
     const userexists = await MyUsers.findOne({email:email});
     if(!(req.body.email&&req.body.password&&req.body.name)){
@@ -119,6 +120,42 @@ app.post('/registration',async (req,res)=>{
                 res.status(500).send({message:e.message})
             }            
         })
+        app.get('/productsMen',async (req,res)=>{
+            try{
+                const Products = await MyProducts.find({tags:"Mens"});
+                return res.status(200).json({
+                    count:Products.length,
+                    data:Products
+                })                
+            }catch(e){
+                console.log(e);
+                res.status(500).send({message:e.message})
+            }            
+        })
+        app.get('/productsWomen',async (req,res)=>{
+            try{
+                const Products = await MyProducts.find({tags:"Women"});
+                return res.status(200).json({
+                    count:Products.length,
+                    data:Products
+                })                
+            }catch(e){
+                console.log(e);
+                res.status(500).send({message:e.message})
+            }            
+        })
+        app.get('/Kids',async (req,res)=>{
+            try{
+                const Products = await MyProducts.find({tags:"Kids"});
+                return res.status(200).json({
+                    count:Products.length,
+                    data:Products
+                })                
+            }catch(e){
+                console.log(e);
+                res.status(500).send({message:e.message})
+            }            
+        })
 
         app.get('/productStatus/:productid', async (req,res)=>{
             const id = req.params;
@@ -197,6 +234,66 @@ app.post('/registration',async (req,res)=>{
             }
         })
 
+        app.get('/ProductAnalysis/:ProductId',async (req,res)=>{
+            try{
+
+                const data=req.params.ProductId;
+                const currProduct = await MyProducts.findOne({ProductId:data});
+
+                
+                if(!currProduct){
+                    res.status(400).json("no product found")
+                    
+                }
+                else{
+                    res.status(200).json(currProduct)
+
+                }
+            }catch(e){
+                res.status(400).json(e)
+
+            }
+        })
+        app.get('/ProductAnalysis',async (req,res)=>{
+            try{
+                const currProduct = await MyProducts.find({stockSize:{$lt:300}});
+
+
+                if(!currProduct){
+                    res.status(400).json("no product found")
+                    
+                }
+                else{
+                    res.status(200).json(currProduct)
+
+                }
+            }catch(e){
+                res.status(401).json(e)
+
+            }
+        })
+        app.get('/LowStock',async (req,res)=>{
+            try{
+                const LowStock = await MyProducts.find({stockSize:{$lt:25}});
+
+
+                if(!LowStock){
+                    res.status(400).json("no product found")
+                    
+                }
+                else{
+                    const LowStockItems = {
+                        count:LowStock.length,
+                        data:LowStock
+                    }
+                    res.status(200).json(LowStockItems)
+
+                }
+            }catch(e){
+                res.status(401).json(e)
+
+            }
+        })
         app.listen(5000,()=>{
 
     

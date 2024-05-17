@@ -3,18 +3,24 @@ import "./Popular.css"
 import data_product from "../Images/data"
 import Item from '../Items/Item'
 
-const Popular = () => {
+const Popular = (props) => {
+
+  const changeTheme = {
+    color : (props.mode==="black")?"yellow":"black"
+  }
+
   return (
     <div>
 
     <div className="popular"> 
 
       <div className="popular-heading">
-        <h1> POPULAR IN WOMEN </h1>
+        <h1 style={changeTheme}> POPULAR IN WOMEN </h1>
       </div>
 
       <div className="popular-dash">
-        <hr />
+        <hr style={{backgroundColor: (props.mode === "black")?"yellow":"black"}}/>
+        {/* {console.log(props.mode)} */}
       </div>
 
         <div className="popular-items">

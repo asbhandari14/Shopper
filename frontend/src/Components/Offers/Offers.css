@@ -1,24 +1,25 @@
 .offers{
-    width: 65%;
+    width: 100%;
+    height: auto;
     display: flex;
-    margin: auto;
+    margin: 4rem auto;
     padding: 0px 140px;
-    margin-bottom: 150px;
-    background: linear-gradient(180deg, pink ,40%, #e1ffea22 60%);
+    background: linear-gradient(180deg, hotpink ,80%, white 100%);
 }
 
 
 .offers-left{
+    margin: 2rem 0;
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: cneter;
+    justify-content: center;
 }
 
 
 .offers-left h1{
     color: #171717;
-    font-size: 80px;
+    font-size: 70px;
     font-weight: 600;
 }
 
@@ -44,9 +45,59 @@
 }
 
 .offers-right{
+    width: 100%;
+    height: 100%;
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding-top: 50px;
+    justify-content: center;
+}
+
+
+.offers-right img{
+    background-size: contain;
+    width: 60%;
+}
+
+
+/* ! ================================================================================================================= */
+/*   !  Responsiveness */
+/*! ================================================================================================================== */
+
+@media screen and (max-width: 1186px) {
+    .offers-right{
+        display: none;
+    }
+    .offers-left{
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 732px) {
+    .offers-left h1{
+        font-size: 40px;
+    }
+    .offers-left button{
+        width: 170px;
+        height: 50px;
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .offers-left h1{
+        font-size: 25px;
+    }
+    .offers-left p{
+        font-size: 12px;
+    }
+    .offers-left button{
+        width: 95px;
+        height: 40px;
+        font-size: 11px;
+    }
+    .offers{
+        padding: 0 0;
+    }
 }

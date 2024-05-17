@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.checkout_section{
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 3rem 4rem;
+}
+
+
+.checkout_container{
+    width: 90%;
+    min-height: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 11rem;
+    /* background-color: azure; */
+}
+
+
+#shipping{
+    width: 40%;
+    height: auto;
+    background-color: #f3e5e57b;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2.5rem;
+    border-radius: 6px;
+    gap: 0.7rem;
+
+    & input{
+        padding: 0.4rem 2rem ;
+        border: 1px solid gray;
+        width: 100%;
+        border-radius: 3px;
+        outline: none;
+    }
+}
+
+h2{
+    font-size: large;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+#order{
+    width: 40%;
+    height: 100%;
+    background-color: #f3e5e57b;
+    padding: 2rem 1rem;
+    gap: 1rem;
+
+    & #placeOrderBtn{
+        width: 80%;
+        margin: auto;
+        /* background-color: red; */
+        margin-top: 1rem;
+
+        & button{
+            width: 100%;
+            padding: 0.7rem 2rem;
+            border: none;
+            background-color: green;
+            color: white;
+        }
+    }
+}

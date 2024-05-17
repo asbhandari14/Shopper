@@ -12,25 +12,32 @@ import Footer from "./Components/Footer/Footer";
 import men_banner from "./Components/Images/banner_mens.png";
 import women_banner from "./Components/Images/banner_women.png";
 import kid_banner from "./Components/Images/banner_kids.png";
-
-
-
-
-
+import { AnalysisChart } from "./Pages/AnalysisChart";
 const App = () => {
-  const [modes, setModes] = useState();
+  const [modes, setModes] = useState("white");
 
-  const getModeFunction=(mode)=>{
-    // console.log(mode);
-    setModes(mode);
-    // console.log(modes);
+  // const getModeFunction=(mode)=>{
+  //   console.log(mode);
+  //   setModes(mode);
+  //   console.log(modes);
+  // }
+
+  const toggleMode=(mode)=>{
+    if(mode === "black"){
+      document.body.style.backgroundColor = "#242424";
+      return setModes("black")
+      
+    }
+    else{
+      document.body.style.backgroundColor = "white";
+      return setModes("white");
+    }
   }
-
   
   return (
    <>
    <Router>
-    <Navbar getMode = {getModeFunction}/>                                {/* By this Navbar is available in all the component  */}
+    <Navbar toggleMode={toggleMode}/>                                {/* By this Navbar is available in all the component  */}
     <Routes>
       <Route path="/" element={<Shop mode={modes}/>} />
       <Route path="/mens" element={<ShopCategory banner={men_banner} category="men" mode={modes}/>} />
@@ -41,6 +48,7 @@ const App = () => {
       <Route path="/cart" element={<Cart mode={modes}/>}  />
       <Route path="/signup" element={<Signup mode={modes}/>}  />                         
       <Route path="/login" element={<Login mode={modes}/>}  />                            
+      <Route path="/analysis" element={<AnalysisChart mode={modes}/>}  />                                                   
 
     </Routes>
     <Footer mode={modes} />

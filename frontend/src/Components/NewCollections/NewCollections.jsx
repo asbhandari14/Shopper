@@ -3,18 +3,24 @@ import "./NewCollections.css"
 import new_collection from '../Images/new_collections'
 import Item from "../Items/Item"
 
-const NewCollections = () => {
+const NewCollections = (props) => {
+
+  const changeTheme = {
+    color : (props.mode==="black")?"yellow":"black"
+  }
+  
+
   return (
     <>
 
     <div className="new-collections">
 
       <div className="new_collection_heading">
-        <h1>NEW COLLECTIONS</h1>
+        <h1 style={changeTheme}>NEW COLLECTIONS</h1>
       </div>
 
       <div className="new_collection_dash">
-        <hr />
+        <hr style={{backgroundColor: (props.mode === "black")?"yellow":"black"}}/>
       </div>
 
         <div className="collections">

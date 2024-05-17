@@ -1,10 +1,13 @@
 .new-collections{
     /* margin-top: 10vh; */
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 10px;
-    width: 100%;
+    height: auto;
+    align-items: center;
+    /* margin: 2rem 0; */
 }
 
 
@@ -18,8 +21,9 @@
 
 .new-collections h1{
     color: #171717;
-    font-size: 50px;
+    font-size: 3rem;
     font-weight: 600;
+    text-align: center;
 }
 
 
@@ -46,6 +50,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 3rem 0;
 }
 
 
@@ -58,3 +63,21 @@
     gap: 20px;
     justify-content: center;
 }
+
+
+
+/** ========================================  Start for the Responsive Code  ========================================= */
+@media screen and (max-width: 520px) {
+    .new_collection_dash {
+        display: none
+    }
+
+}
+
+
+@media screen and (max-width: 1000px) {
+    .new_collection_heading {
+        height: auto;
+    }
+}
+/** =========================================  End for the Responsive Code  ========================================== */

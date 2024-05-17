@@ -17,11 +17,15 @@ const getDefaultCart = () => {
 const ShopContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState(getDefaultCart());
+    const [size, setSize] = useState();
+    const [arr, setArr] = useState([]);
     
+
     const addToCart = (itemId) => {
         setCartItems((prev)=>({...prev, [itemId]:prev[itemId]+1}));
-        console.log(cartItems);
+        // console.log(cartItems);
     }
+    
     
     const removeFromCart = (itemId) => {
         setCartItems((prev)=>({...prev, [itemId]:prev[itemId]-1}));
@@ -41,6 +45,12 @@ const ShopContextProvider = (props) => {
         return totalItem;
     }
 
+    
+    const getSizeFunction=(val)=>{
+            setSize(val);
+            return size;
+    }
+
 
 // This is the function for the total amount of the cart 
     const getTotalCartAmount = ()=>{
@@ -55,10 +65,24 @@ const ShopContextProvider = (props) => {
         }
         return totalAmount;
     }
-    
-    
-    const contextValue = {getTotalCartItems, all_product, cartItems, addToCart, removeFromCart, getTotalCartAmount};
 
+    let obj = {
+        email : "abc123@gmail.com",
+        address : "142 Street",
+        productInfo : {},
+    }
+
+    console.log(obj);
+
+    const getProductInfo=(val)=>{
+        setArr([...arr, val])
+    //     obj.productInfo = [...arr];
+    // // //    setArr(arr=> [...arr, val]);
+        console.log(arr);
+    }
+    
+    
+    const contextValue = {getTotalCartItems, all_product, cartItems, addToCart, removeFromCart, getTotalCartAmount, getSizeFunction, getProductInfo};
 
     return(
         <ShopContext.Provider value = {contextValue}>

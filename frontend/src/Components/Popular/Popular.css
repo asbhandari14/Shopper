@@ -1,12 +1,10 @@
 .popular{
-    margin-top: 10vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    /* height: 90vh; */
     width: 100%;
-    /* background-color: aquamarine; */
+    margin-top: 10vh;
+    display: grid;
+    grid-template-columns: auto;
+    place-items: center;
+    gap: 10px;
 }
 
 
@@ -15,13 +13,14 @@
     height: 10vh;
     display: flex;
     justify-content: center;
+    text-align: center;
     /* background-color: yellow; */
 }
 
 
 .popular-heading h1{
     color: #171717;
-    font-size: 50px;
+    font-size: 3rem;
     font-weight: 600;
 }
 
@@ -33,7 +32,7 @@
     align-items: center;
     width: 100%;
     height: 6vh;
-    /* background-color: purple; */
+
 }
 
 
@@ -58,8 +57,39 @@
     margin: 5vh 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     flex-wrap: wrap; 
+    height: auto;
     gap: 20px;
     justify-content: center;
 }
+
+
+/** ========================================  Start for the Responsive Code  ========================================= */
+
+@media screen and (max-width: 550px) {
+    .popular-heading h1 {
+        font-size: 2rem;
+    }
+    .popular-dash hr {
+        display: none
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .popular-heading {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .popular-heading {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+/** =========================================  End for the Responsive Code  ========================================== */

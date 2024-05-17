@@ -1,5 +1,6 @@
 
 .navbar{
+    max-width: 2160px;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -45,7 +46,7 @@
     cursor: pointer;
 }
 
-.nav-menu li:hover{
+.borderBottom{
     border-bottom: 2px solid red;
 }
 
@@ -57,8 +58,9 @@
 }
 
 .nav-login-cart button{
-    width: 5.6vw;                       /* changes done yesterday */
-    height: 5.7vh;                      /* changes done yesterday  */
+    width: auto;                       /* changes done yesterday */
+    height: auto;                      /* changes done yesterday  */
+    padding: 0.8rem 2rem;
     outline: none;
     border: 1px solid #7a7a7a;
     border-radius: 75px;
@@ -69,9 +71,7 @@
     cursor: pointer;
 }
 
-.nav-login-cart img{
-    height: 4vh;                          /* changes done yesterday  */
-}
+
 
 .nav-login-cart button:active{
     background-color: #f3f3f3;
@@ -83,11 +83,62 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -18px;                        /* changes done yesterday  */
-    margin-left: -50px;                        /* changes done yesterday  */
+    margin-top: -24px;                        /* changes done yesterday  */
+    margin-left: -52px;                        /* changes done yesterday  */
     border-radius: 7px;                           /* changes done yesterday  */
     font-size: 12px;                              /* changes done yesterday  */
     background-color: red;
     color: white;
 }
+
+.hamburgerMenu{
+    display: none;
+}
+
+
+/** ========================================  Start for the Responsive Code  ========================================= */
+
+@media screen and (max-width: 1360px) {
+    .nav-login-cart button {
+        width: auto;
+        height: auto;
+        padding: 0.6rem 0.7rem;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .hamburgerMenu{
+        display: inline-block;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-login-cart {
+        display: none;
+    }
+
+    .navbar {
+        justify-content: space-between;
+        padding: 0 3rem;
+    }
+}
+
+
+@media screen and (max-width: 920px) {
+    .nav-login-cart button {
+        width: auto;
+        height: auto;
+        padding: 0.6rem 0.7rem;
+    }
+    
+}
+
+
+
+
+/** =========================================  End for the Responsive Code  ========================================== */
+
 
