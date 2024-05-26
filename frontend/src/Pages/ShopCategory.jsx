@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useMemo, useState } from 'react'
 import "./ShopCategory.css"
 import { ShopContext } from '../Context/ShopContext'
 import Item from '../Components/Items/Item'
 // import { RiArrowDropDownLine } from "react-icons/ri";
 
-
+import axios from 'axios'
 
 
 
@@ -16,7 +16,21 @@ const ShopCategory = (props) => {
     color : (props.mode==="black")?"yellow":"black",
   }
 
-
+  const [products,setProducts]=useState([]);
+  axios.defaults.withCredentials = true;
+  useMemo(()=>{
+    return sendreq();
+  },[])
+  async function sendreq(){
+    setProducts( await axios.get('http://localhost:5000/products').then((res)=>{
+      console.log(res.data.data)
+      return res.data.data
+    }).catch((e)=>{
+      alert('an error has occured')
+      console.log(e)
+    }))
+  }
+    
   const getSelectValue=()=>{
     console.log(sort)
     if(sort === "asc"){
@@ -66,13 +80,14 @@ const ShopCategory = (props) => {
           <div className="shopcategory-products">
             <div className="shopcategory-products-item">
 
-          {all_product.map((item, i)=>{
-            if (props.category === item.category){
-              return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price}  old_price={item.old_price} />
-            }
-            else{
-              return null;
-            } 
+          {products.map((item, i)=>{
+            // if (props.category === item.category){
+            // }
+            console.log('the products are',products)
+              return <Item key={i} id={item.id} name={item.ProductName} image={item.image} new_price={item.new_price}  old_price={item.old_price} />
+            // else{
+            //   return null;
+            // } 
           })}
           </div>
           </div>
