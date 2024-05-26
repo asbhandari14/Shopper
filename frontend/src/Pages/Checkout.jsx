@@ -3,11 +3,12 @@ import "./Checkout.css"
 
 import { ShopContext } from '../Context/ShopContext';
 import { useNavigate } from 'react-router-dom';
+// import Razorpay from 'razorpay';
 // import axios from 'axios';
 
 
 const Checkout = () => {
-    const { cartItems, getTotalCartAmount} = useContext(ShopContext); 
+    const { cartInfoSection, getTotalCartItems} = useContext(ShopContext); 
 
     const [formFields, setformFields] = useState({
         name: '',
@@ -21,6 +22,7 @@ const Checkout = () => {
 
 
     const placeOrder = () => {
+        {console.log(getTotalCartItems())}
 
         if (formFields.name === "" || formFields.address === "" || formFields.pincode === "" || formFields.phoneNumber === "") {
             alert("All fields Required");
@@ -49,7 +51,7 @@ const Checkout = () => {
         var options = {
             key: "rzp_test_KqXHEEQNJSfaga",
             key_secret: "OhlkNXfmQDsIn5NE6X3XWGPN",
-            amount: parseInt(getTotalCartAmount() * 100),
+            amount: parseInt(getTotalCartItems()*100),
             currency: "INR",
             order_receipt: 'order_rcptid_' + formFields.name,
             name: "E-Bharat",
@@ -63,7 +65,7 @@ const Checkout = () => {
                 const paymentId = response.razorpay_payment_id
                 // store in firebase 
                 const orderInfo = {
-                    cartItems: cartItems(),
+                    cartItems: cartInfoSection(),
                     addressInfo: addressInfo,
                     date: new Date().toLocaleString(
                         "en-US",
@@ -130,7 +132,7 @@ const Checkout = () => {
                 <div id='order'>
                     <div className='flex'>
                         <p>Subtotal</p>
-                        <p>{getTotalCartAmount()}</p>
+                        <p>{getTotalCartItems()}</p>
                     </div>
                     <div className='flex'>
                         <p>Shipping</p>
@@ -138,7 +140,7 @@ const Checkout = () => {
                     </div>
                     <div className='flex'>
                         <p>Total</p>
-                        <p>{getTotalCartAmount()}</p>
+                        <p>{getTotalCartItems()}</p>
                     </div>
                     <div id="placeOrderBtn">
                             <button onClick={placeOrder}>Place Order</button>

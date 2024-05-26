@@ -2,19 +2,14 @@ import React, { useContext, useEffect, useState } from 'react'
 import "./CartItems.css"
 import { ShopContext } from '../../Context/ShopContext'
 import remove_icon from "../Images/cart_cross_icon.png"  
-import { Link } from 'react-router-dom'
+import { Link, redirect } from 'react-router-dom'
 
 
 const CartItems = (props) => {
     const [size, setSize] = useState();
     const {all_product, cartItems, removeFromCart, getTotalCartAmount, getSizeFunction, getProductInfo} = useContext(ShopContext); 
     const [productInfo, setProductInfo] = useState([]);
-
-
-    
-      const key = Object.keys(cartItems).find((key) => cartItems[key] === 1);
-      console.log(key); 
-      const personalInfo = all_product[key];      
+    const {cartInfoSection} = useContext(ShopContext);
 
 
 
@@ -22,22 +17,21 @@ const CartItems = (props) => {
       setSize(getSizeFunction())
     }, [])
 
-    // let newObj = {
-    //   productName : "",
-    //   price : 2,
-    //   productQuan : "",
-    // };
-    // const getProductInfo=()=>{
-   
-    //     product : 
-    //   }
-    //   setSize([...productInfo, ])
-    // }
+    const calTotalSum=()=>{
+      let sum = cartInfoSection().reduce((accum, elem)=>{
+        return accum+elem.discountedPrice;
+      }, 0)
+      return sum
+    }
+
+
+
   return (
     <>
     <div className="cartitems">
 
         <div className="cartitems-format-main" style={{color : (props.mode)==="black"?"yellow":"black"}}>
+        {console.log(cartInfoSection())}
             <p>Products</p>
             <p>Title</p>
             <p>Size</p>
@@ -49,21 +43,22 @@ const CartItems = (props) => {
         <hr />
        {/* { console.log(props.mode)} */}
  
-       {all_product.map((e, index)=>{
-        if(cartItems[e.id]>0)
+       {cartInfoSection().map((currElem, index)=>{
+        if(currElem._id.length>0)
         {
             return <div key={index} >
             <div className="cartitems-format cartitems-format-main" style={{color : (props.mode)==="black"?"yellow":"black"}}>
-                <img src={e.image} alt="" className='carticon-product-icon' />
-                <p>{e.name}</p>
-                <p>{size}</p>
+                <img src={currElem.ProductImg} alt="" className='carticon-product-icon' />
+                <p>{currElem.ProductName}</p>
+                <p>{currElem.size}</p>
+
 
                 
   
-                <p id="newPrice">${e.new_price}</p>
-                <button className='cartitems-quantity'>{cartItems[e.id]}</button>
-                <p>${e.new_price*cartItems[e.id]}</p>
-                <img  className='removeBtn' src={remove_icon} onClick={()=>{removeFromCart(e.id)}} alt="" />
+                <p id="newPrice">&#8377;{currElem.discountedPrice}</p>
+                <button className='cartitems-quantity'>{"1"}</button>
+                <p>&#8377;{currElem.discountedPrice}</p>
+                <img  className='removeBtn' src={remove_icon} onClick={()=>{removeFromCart(currElem._id)}} alt="" />
             </div>
             <hr />
         </div>
@@ -78,7 +73,8 @@ const CartItems = (props) => {
         <div className='cart_total_calculate'>
           <div className="cartitems-total-item">
             <p>Subtotal</p>
-            <p>$ {getTotalCartAmount()}</p>
+            {/* {console.log(calTotalSum())} */}
+            <p>&#8377;{calTotalSum()}</p>
           </div>
           <hr style={{color : (props.mode)==="black"?"yellow":"black"}}/>
           <div className="cartitems-total-item">
@@ -88,14 +84,14 @@ const CartItems = (props) => {
           <hr style={{color : (props.mode)==="black"?"yellow":"black"}}/>
           <div className="cartitems-total-item">
             <h3>Total</h3>
-            <h3>$ {getTotalCartAmount()}</h3>
-            {console.log(personalInfo)}
+            <h3>&#8377;{calTotalSum()}</h3>
+            {/* {console.log(personalInfo)} */}
           </div>
 
           </div>
 
           
-          <Link to="/checkout"> <button id='proceedBtn' onClick={()=>{getProductInfo(personalInfo)}}> CHECKOUT</button> </Link>
+          <Link to="/checkout"> <button id='proceedBtn' onClick={()=>{getProductInfo(cartInfoSection())}}> CHECKOUT</button> </Link>
 
         </div>
       </div>

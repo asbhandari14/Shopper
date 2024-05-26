@@ -57,6 +57,6 @@
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap; 
-    gap: 30px;
+    gap: 5rem 2rem;
     justify-content: center;
 }
