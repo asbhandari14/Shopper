@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: auto;
     place-items: center;
+    /* gap: 1rem 2rem; */
 }
 
 

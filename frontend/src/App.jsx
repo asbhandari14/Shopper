@@ -12,6 +12,8 @@ import Footer from "./Components/Footer/Footer";
 import men_banner from "./Components/Images/banner_mens.png";
 import women_banner from "./Components/Images/banner_women.png";
 import kid_banner from "./Components/Images/banner_kids.png";
+import Checkout from "./Pages/Checkout";
+
 import { AnalysisChart } from "./Pages/AnalysisChart";
 const App = () => {
   const [modes, setModes] = useState("white");
@@ -40,14 +42,15 @@ const App = () => {
     <Navbar toggleMode={toggleMode}/>                                {/* By this Navbar is available in all the component  */}
     <Routes>
       <Route path="/" element={<Shop mode={modes}/>} />
-      <Route path="/mens" element={<ShopCategory banner={men_banner} category="men" mode={modes}/>} />
-      <Route path="/womens" element={<ShopCategory banner={women_banner} category="women" mode={modes} />} />
-      <Route path="/kids" element={<ShopCategory banner={kid_banner} category="kid" mode={modes} />} />
+      <Route path="/mens" element={<ShopCategory banner={men_banner} category="Mens" mode={modes}/>} />
+      <Route path="/womens" element={<ShopCategory banner={women_banner} category="Women" mode={modes} />} />
+      <Route path="/kids" element={<ShopCategory banner={kid_banner} category="Kids" mode={modes} />} />
       <Route path="/product" element={<Product mode={modes}/>}  />
       <Route path= '/product/:productId' element={<Product mode={modes}/>}  />
       <Route path="/cart" element={<Cart mode={modes}/>}  />
       <Route path="/signup" element={<Signup mode={modes}/>}  />                         
-      <Route path="/login" element={<Login mode={modes}/>}  />                            
+      <Route path="/login" element={<Login mode={modes}/>}  />   
+      <Route path="/checkout" element={<Checkout mode={modes}/>}  />                              
       <Route path="/analysis" element={<AnalysisChart mode={modes}/>}  />                                                   
 
     </Routes>

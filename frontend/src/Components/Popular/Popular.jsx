@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+// import {useContext, useEffect} from 'react';
 import "./Popular.css"
 import data_product from "../Images/data"
 import Item from '../Items/Item'
+import { ShopContext } from '../../Context/ShopContext'
+// import axios from 'axios'
+// import { ShopContext } from '../../Context/ShopContext'
 
 const Popular = (props) => {
+  const {getPopularWomenData} = useContext(ShopContext)
+  
 
   const changeTheme = {
     color : (props.mode==="black")?"yellow":"black"
@@ -15,18 +21,20 @@ const Popular = (props) => {
     <div className="popular"> 
 
       <div className="popular-heading">
+       
         <h1 style={changeTheme}> POPULAR IN WOMEN </h1>
+        
       </div>
 
       <div className="popular-dash">
         <hr style={{backgroundColor: (props.mode === "black")?"yellow":"black"}}/>
-        {/* {console.log(props.mode)} */}
+        {/* {console.log(getPopularWomenData())} */}
       </div>
 
         <div className="popular-items">
             <div className="popular-item">
-            {data_product.map((item, index)=>{
-                return <Item key={index} id={item.id} name={item.name} image={item.image} new_price={item.new_price}  old_price={item.old_price} />
+            {getPopularWomenData().map((item, index)=>{
+                return <Item key={index} id={item._id} name={item.ProductName} image={item.ProductImg} new_price={item.discountedPrice}  old_price={item.Price} />
             })}
             </div>
         </div>

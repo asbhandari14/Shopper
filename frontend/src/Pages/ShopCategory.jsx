@@ -11,20 +11,26 @@ import axios from 'axios'
 
 const ShopCategory = (props) => {
   const [sort, setSort] = useState("sort");
-  const {all_product} = useContext(ShopContext);
+  const {all_product, getProductApiArray} = useContext(ShopContext);
   const changeTheme = {
     color : (props.mode==="black")?"yellow":"black",
   }
 
   const [products,setProducts]=useState([]);
   axios.defaults.withCredentials = true;
+
+
   useMemo(()=>{
     return sendreq();
   },[])
+
+
+  
   async function sendreq(){
     setProducts( await axios.get('http://localhost:5000/products').then((res)=>{
       console.log(res.data.data)
-      return res.data.data
+      getProductApiArray(res.data.data);
+      return res.data.data;
     }).catch((e)=>{
       alert('an error has occured')
       console.log(e)
@@ -73,7 +79,9 @@ const ShopCategory = (props) => {
              </p>
              {/* <div><RiArrowDropDownLine style={{fontSize: "3rem"}}/></div> */}
              {getSelectValue()}
-             {/* {console.log(sort)} */}
+            
+             {console.log(props.category)}
+             {console.log(products)}
           </div>
         </div>
 
@@ -81,10 +89,10 @@ const ShopCategory = (props) => {
             <div className="shopcategory-products-item">
 
           {products.map((item, i)=>{
-            // if (props.category === item.category){
-            // }
-            console.log('the products are',products)
-              return <Item key={i} id={item.id} name={item.ProductName} image={item.image} new_price={item.new_price}  old_price={item.old_price} />
+             if (props.category === item.tags[0]){
+              return <Item key={i} id={item._id} name={item.ProductName} image={item.ProductImg} new_price={item.Price}  old_price={item.discountedPrice} />
+             }
+             
             // else{
             //   return null;
             // } 

@@ -13,7 +13,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = (props) => {
 
-  const {getTotalCartItems} = useContext(ShopContext)
+  const {cartArrayLength} = useContext(ShopContext)
   const [mode, setMode] = useState("black");
   const [val, setVal] = useState("Shop");
 
@@ -53,7 +53,7 @@ const Navbar = (props) => {
         <div className="nav-login-cart ">
           <Link to="/signup">  <button style={{backgroundColor : (mode==="white")?"yellow":"white"}}>LOG IN</button>  </Link>          {/*  //changes done yesterday */}
           <Link to="/cart"> <IoCartSharp style={{color : (mode==="white")?"yellow":"black", fontSize : "1.5rem"}} />  </Link>
-          <div className="nav-cart-count" > {getTotalCartItems()} </div>
+          <div className="nav-cart-count" > {cartArrayLength()} </div>
 
           <DarkModeIcon onClick={()=>{
             if(mode === "black"){
