@@ -5,18 +5,18 @@ import Breadcrum from "../Components/Breadcrums/Breadcrum";
 import ProductDisplay from "../Components/ProductDisplays/ProductDisplay";
 
 
-const Product = () => {
+const Product = (props) => {
   const { all_product } = useContext(ShopContext);
   const { productId } = useParams();
   const {getAllProductData} = useContext(ShopContext);
 
 
   const product = getAllProductData().find((currElem) => currElem._id === productId);
-  // console.log(product);
+  console.log(props.mode);
   return (
     <div>
-       <Breadcrum product = {product} />
-       <ProductDisplay product={product} />                
+       <Breadcrum product = {product} mode = {props.mode}/>
+       <ProductDisplay product={product} mode={props.mode} />                
     </div>
   );
 };
