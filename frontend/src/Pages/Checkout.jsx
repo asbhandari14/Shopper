@@ -23,6 +23,7 @@ const Checkout = () => {
 
     const placeOrder = () => {
         {console.log(getTotalCartItems())}
+        {console.log(cartInfoSection())}
 
         if (formFields.name === "" || formFields.address === "" || formFields.pincode === "" || formFields.phoneNumber === "") {
             alert("All fields Required");
@@ -49,8 +50,8 @@ const Checkout = () => {
 
 
         var options = {
-            key: "rzp_test_KqXHEEQNJSfaga",
-            key_secret: "OhlkNXfmQDsIn5NE6X3XWGPN",
+            key: "rzp_test_9OPGhLjsO1bRcu",
+            key_secret: "MuyybBqGo1WULx7898lgAo26",
             amount: parseInt(getTotalCartItems()*100),
             currency: "INR",
             order_receipt: 'order_rcptid_' + formFields.name,

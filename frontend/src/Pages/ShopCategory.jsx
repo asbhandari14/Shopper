@@ -60,7 +60,7 @@ const ShopCategory = (props) => {
         <img src={props.banner} alt="" />
         </div>
 
-        <div className="shop-category-indexSort">
+        {/* <div className="shop-category-indexSort">
             <p style={changeTheme}> <span>Showing 1-12</span> out of 36 product </p>
           <div className="shopcategory-sort" style={changeTheme}>
              <p style={{display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center"}}>
@@ -77,13 +77,13 @@ const ShopCategory = (props) => {
                 <label htmlFor="name">Name</label>
               </div>
              </p>
-             {/* <div><RiArrowDropDownLine style={{fontSize: "3rem"}}/></div> */}
+             <div><RiArrowDropDownLine style={{fontSize: "3rem"}}/></div> 
              {getSelectValue()}
             
              {console.log(props.category)}
              {console.log(products)}
           </div>
-        </div>
+        </div> */}
 
           <div className="shopcategory-products">
             <div className="shopcategory-products-item">

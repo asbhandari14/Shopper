@@ -22,7 +22,7 @@ const Item = (props) => {
          {console.log("the mode is",props.mode)}
         </div>
         <div className="item-heading">
-        <Link to={`/product/${props.id}`}>  <p id="title" style={{color:"blue"}}>{props.name}</p>  </Link>
+        <Link to={`/product/${props.id}`}>  <p id="title" style={{color:"#777"}}>{props.name}</p>  </Link>
         </div>
         
 
