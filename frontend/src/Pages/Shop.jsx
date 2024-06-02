@@ -9,7 +9,7 @@ import axios from "axios";
 
 const Shop = (props) => {
   console.log('props at shop',props.mode)
-  const [mode,setMode]=useState("white");
+  // const [mode,setMode]=useState("white");
   console.log("mode at shop is",props.mode)
   axios.defaults.withCredentials = true;
   axios.get(`http://localhost:5000/Profile`).then((response)=>{

@@ -6,8 +6,10 @@ const cookieParser = require("cookie-parser")
 const MyUsers = require('./models/UsersInfoModel')
 const Orders= require('./models/OrderSchema')
 const {createTokens,validateToken} = require('./JWT')
+const {analyzeProduct}=require('./ANALYZE')
 const app = express();
 const bcrypt = require('bcrypt')
+
 const UsersInfoModel = require('./models/UsersInfoModel')
 const ProductsModel = require('./models/ProductsModel')
 app.use(cors({credentials:true,origin:'http://localhost:3000'}));
@@ -214,13 +216,22 @@ app.post('/registration',async (req,res)=>{
         app.get('/createorder',async (req,res)=>{
             try{
                 const myorder = {
-                    OrderId:"34512",
-                    ProductId:"12345433",
-                    CustomerEmail:"amanbisht26@gmail.com",
-                    SellingPrice:"799",
-                    Size:"XL",
-                    AmountBought:2
+                    // OrderId:"34512",
+                    ProductId:"3",
+                    CustomerEmail:"wala22@gmail.com",
+                    CustomerAddress:"mohali ,Punjab",
+                    SellingPrice:"1199",
+                    Size:"L",
+                    AmountBought:1
                 }
+                // const myorder = {
+                //     ProductId:"10",
+                //     CustomerEmail:"an20bisht26@gmail.com",
+                //     CustomerAddress:"Palam ,New Delhi",
+                //     SellingPrice:"1299",
+                //     Size:"S",
+                //     AmountBought:1
+                // }
 
                 const order = Orders(myorder)
                 await order.save();
@@ -237,18 +248,10 @@ app.post('/registration',async (req,res)=>{
         app.get('/ProductAnalysis/:ProductId',async (req,res)=>{
             try{
 
-                const data=req.params.ProductId;
-                const currProduct = await MyProducts.findOne({ProductId:data});
+                const Pid=req.params.ProductId;
+                const data=await analyzeProduct(Pid);
+                res.status(200).json(data)
 
-                
-                if(!currProduct){
-                    res.status(400).json("no product found")
-                    
-                }
-                else{
-                    res.status(200).json(currProduct)
-
-                }
             }catch(e){
                 res.status(400).json(e)
 

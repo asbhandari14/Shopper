@@ -13,8 +13,9 @@ import men_banner from "./Components/Images/banner_mens.png";
 import women_banner from "./Components/Images/banner_women.png";
 import kid_banner from "./Components/Images/banner_kids.png";
 import Checkout from "./Pages/Checkout";
-
+import Analyze from "./Pages/Analyze";
 import { AnalysisChart } from "./Pages/AnalysisChart";
+import AdminPanel from "./Pages/AdminPanel";
 const App = () => {
   const [modes, setModes] = useState("white");
 
@@ -52,6 +53,8 @@ const App = () => {
       <Route path="/login" element={<Login mode={modes}/>}  />   
       <Route path="/checkout" element={<Checkout mode={modes}/>}  />                              
       <Route path="/analysis" element={<AnalysisChart mode={modes}/>}  />                                                   
+      <Route path="/admin/analyze" element={<Analyze mode={modes}/>}  />                                                   
+      <Route path="/admin" element={<AdminPanel mode={modes}/>}  />                                                   
 
     </Routes>
     <Footer mode={modes} />
