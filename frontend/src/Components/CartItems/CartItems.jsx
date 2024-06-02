@@ -30,8 +30,9 @@ const CartItems = (props) => {
     <>
     <div className="cartitems">
 
-        <div className="cartitems-format-main" style={{color : (props.mode)==="black"?"yellow":"black"}}>
+        <div className="cartitems-format-main cartitems_heading" style={{color : (props.mode)==="black"?"yellow":"black"}}>
         {console.log(cartInfoSection())}
+        {/* {console.log(window.location.p)} */}
             <p>Products</p>
             <p>Title</p>
             <p>Size</p>
@@ -91,7 +92,7 @@ const CartItems = (props) => {
           </div>
 
           
-          <Link to="/checkout"> <button id='proceedBtn' onClick={()=>{getProductInfo(cartInfoSection())}}> CHECKOUT</button> </Link>
+          <Link to="/checkout"> <button id='proceedBtn' onClick={()=>{getProductInfo(cartInfoSection()); window.scrollTo(0, 0)}}> CHECKOUT</button> </Link>
 
         </div>
       </div>
