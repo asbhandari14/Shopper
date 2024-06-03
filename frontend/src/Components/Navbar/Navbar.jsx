@@ -17,6 +17,7 @@ const Navbar = (props) => {
   const {cartArrayLength} = useContext(ShopContext)
   const [mode, setMode] = useState("black");
   const [val, setVal] = useState("Shop");
+  const [res_nav, setRes_Nav] = useState(false);
 
 
   // const toggleMode=(mode)=>{
@@ -31,7 +32,9 @@ const Navbar = (props) => {
   //   }
   // }
 
-  if(useLocation().pathname === "/cart"){
+  let path = useLocation().pathname;
+
+  if(path === "/admin" || path === "/admin/analyze" || false){
     return null;
   }
 
@@ -73,13 +76,21 @@ const Navbar = (props) => {
           }} style={{color : (mode==="white")?"yellow":"black"}}></DarkModeIcon>
           
 
-        <div className="hamburgerMenu">
+        <div className="hamburgerMenu" onClick={()=>{setRes_Nav(!res_nav)}}>
             <GiHamburgerMenu style={{color : (mode==="black")?"black":"yellow"}}/>:
         </div>
         </div>
          
     </div>
-    
+    {console.log(mode)}
+    <div className="resp_nav" style={{display : (res_nav)?"flex": "none", backgroundColor: (mode==="black")?"white":"#042743"}} onClick={()=>{setRes_Nav(!res_nav)}}>
+      <Link to="/" className='link' style={{color : (mode==="black")?"black":"yellow"}}><li>Shop</li></Link>
+      <Link to="mens" className='link' style={{color : (mode==="black")?"black":"yellow"}}><li>Men</li></Link>
+      <Link to="womens" className='link' style={{color : (mode==="black")?"black":"yellow"}}><li>Women</li></Link>
+      <Link to="kids" className='link' style={{color : (mode==="black")?"black":"yellow"}}><li>Kids</li></Link>
+      <Link to="login" className='link' style={{color : (mode==="black")?"black":"yellow"}}><li>Login</li></Link>
+      <Link to="cart" className='link' style={{color : (mode==="black")?"black":"yellow"}}><li>Cart</li></Link>
+    </div>
     </>
   )
 }

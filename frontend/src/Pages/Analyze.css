@@ -4,6 +4,20 @@
     align-items: center;
     justify-content: center;
     /* background-color: #142a8b; */
+
+
+    & #analyze_heading{
+        margin-top: 2rem;
+        font-weight: 700;
+    }
+
+    & #analyze_heading_bar{
+        width: 23rem;
+        height: 6px;
+        border-radius: 10px;
+        background-color: #252525;
+        margin-bottom: 4rem;
+    }
 }
 .myProducts{
     /* border: 1px solid red; */
@@ -12,11 +26,15 @@
     width: 90vw;
     display: flex;
     height: 60px;
-    font-size: 1.5rem;
-    border: 1px solid black;
-    margin-bottom: 5px;
-    background-color: #222222;
-    color:rgb(170, 170, 95)
+    font-size: 1.3rem;
+    /* border: 1px solid black; */
+    margin-bottom: 2rem;
+    padding : 2rem 1rem;
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 .myProducts div{
     /* border: 1px solid black; */
@@ -24,13 +42,17 @@
 }
 .ProductId{
     width: 5vh;
-    color: white;
+    color: black;
 }
 .ProductName{width: 70vw}
 .analyze-button{
     /* width: 5vw; */
     text-decoration: none;
     border-radius: 10px;
-    color: white;
-    background-color: yellowgreen;
+    color: black;
+    background-color: #829bff;
+    padding: 0.4rem 0.5rem ;
+    /* border: 2px solid black */
+    border-style: none;
+    font-size: large;
 }

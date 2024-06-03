@@ -106,6 +106,8 @@ const Analyze = () => {
   }
   return (
     <div className='Analyze'>
+        <h1 id='analyze_heading'>Analyze all the Products</h1>
+        <hr id="analyze_heading_bar" />
         {products.map((obj)=>{
         return <div key={obj.ProductId} className='myProducts'>
             <div className='ProductId'>{obj.ProductId}</div>

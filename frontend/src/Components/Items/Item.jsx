@@ -21,7 +21,7 @@ const Item = (props) => {
             </div>
             
 
-            {/* {console.log(mode)} */}
+            {/* {console.log(`Hello I am the ${mode}`)} */}
             <div className="item-prices">
                   <div className="item-price-new"> &#8377;{props.new_price}</div>
 
