@@ -16,7 +16,7 @@ const Navbar = (props) => {
 
   const {cartArrayLength} = useContext(ShopContext)
   const [mode, setMode] = useState("black");
-  const [val, setVal] = useState("Shop");
+  const [val, setVal] = useState("shop");
   const [res_nav, setRes_Nav] = useState(false);
 
 
@@ -49,16 +49,16 @@ const Navbar = (props) => {
           </div>
       </Link>
 
-        <div className="nav-menu " onClick={(event)=>{setVal(event.target.textContent)}}>
+        <div className="nav-menu ">
           {/* {console.log(typeof val)} */}
-          <li> <Link  style={{ color : (mode==="white")?"yellow":"black", textDecoration: "none", borderBottom: (val==="Shop")?"2px solid red":""}}   to="/" > Shop  </Link> </li>
-          <li> <Link  style={{ color : (mode==="white")?"yellow":"black", textDecoration: "none", borderBottom: (val==="Men") ?"2px solid red":""}}   to="/mens" > Men  </Link> </li>
-          <li> <Link  style={{ color : (mode==="white")?"yellow":"black", textDecoration: "none", borderBottom: val==="Women"?"2px solid red":""}}  to="/womens" >  Women  </Link>  </li>
-          <li> <Link  style={{ color : (mode==="white")?"yellow":"black", textDecoration: "none", borderBottom : val==="Kids"?"2px solid red":""}}  to="/kids" > Kids </Link>  </li> 
+          <li onClick={()=>{setVal("shop")}}> <Link  style={{ color : (mode==="white")?"yellow":"black", textDecoration: "none", borderBottom: (val==="shop")?"2px solid red":""}}   to="/" > Shop  </Link> </li>
+          <li  onClick={()=>{setVal("men")}}> <Link  style={{ color : (mode==="white")?"yellow":"black", textDecoration: "none", borderBottom: (val==="men") ?"2px solid red":""}}   to="/mens" > Men  </Link> </li>
+          <li  onClick={()=>{setVal("women")}}> <Link  style={{ color : (mode==="white")?"yellow":"black", textDecoration: "none", borderBottom: (val==="women")?"2px solid red":""}}  to="/womens" >  Women  </Link>  </li>
+          <li  onClick={()=>{setVal("kids")}}> <Link  style={{ color : (mode==="white")?"yellow":"black", textDecoration: "none", borderBottom : (val==="kids")?"2px solid red":""}}  to="/kids" > Kids </Link>  </li> 
         </div>
 
         <div className="nav-login-cart ">
-          <Link to="/signup">  <button style={{backgroundColor : (mode==="white")?"yellow":"white"}}>LOG IN</button>  </Link>          {/*  //changes done yesterday */}
+          <Link to="/login">  <button style={{backgroundColor : (mode==="white")?"yellow":"white"}}>LOG IN</button>  </Link>          {/*  //changes done yesterday */}
           <Link to="/cart"> <IoCartSharp style={{color : (mode==="white")?"yellow":"black", fontSize : "1.5rem"}} />  </Link>
           <div className="nav-cart-count" > {cartArrayLength()} </div>
         </div>
@@ -84,11 +84,11 @@ const Navbar = (props) => {
     </div>
     {console.log(mode)}
     <div className="resp_nav" style={{display : (res_nav)?"flex": "none", backgroundColor: (mode==="black")?"white":"#042743"}} onClick={()=>{setRes_Nav(!res_nav)}}>
-      <Link to="/" className='link' style={{color : (mode==="black")?"black":"yellow"}}><li>Shop</li></Link>
+      <Link to="/" className='link' style={{color : (mode==="black")?"black":"yellow"}}><li >Shop</li></Link>
       <Link to="mens" className='link' style={{color : (mode==="black")?"black":"yellow"}}><li>Men</li></Link>
       <Link to="womens" className='link' style={{color : (mode==="black")?"black":"yellow"}}><li>Women</li></Link>
       <Link to="kids" className='link' style={{color : (mode==="black")?"black":"yellow"}}><li>Kids</li></Link>
-      <Link to="login" className='link' style={{color : (mode==="black")?"black":"yellow"}}><li>Login</li></Link>
+      <Link to="login" className='link login' style={{color : (mode==="black")?"black":"yellow"}}><li>Login</li></Link>
       <Link to="cart" className='link' style={{color : (mode==="black")?"black":"yellow"}}><li>Cart</li></Link>
     </div>
     </>
