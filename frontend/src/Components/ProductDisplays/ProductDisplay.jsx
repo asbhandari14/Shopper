@@ -67,8 +67,8 @@ const ProductDisplay = (props) => {
                 {/* {console.log(size)} */}
                     <button className='cart_btn' onClick={()=>{(size===undefined)?alert("Please select size"):addToCart(product, size);}}>ADD TO CART</button> 
                 <Link to="/cart"><button className='cart_btn' onClick={()=>{window.scrollTo(0, 0)}}>GO TO CART</button> </Link>
-                <p className='productdisplay-right-category'><span> Category : </span> Woman, T-Shirt, Crop Top</p>
-                <p className='productdisplay-right-category'><span> Tags : </span> Modern, T-Latest</p>
+                <p className='productdisplay-right-category'><span> Category : </span>{product.ProductName}</p>
+                <p className='productdisplay-right-category'><span> Tags : </span>{product.tags.toString()}</p>
             </div>
             </div>
             {/* {console.log(size)} */}
