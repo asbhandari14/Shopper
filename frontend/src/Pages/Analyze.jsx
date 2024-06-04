@@ -111,7 +111,7 @@ const Analyze = () => {
         {products.map((obj)=>{
         return <div key={obj.ProductId} className='myProducts'>
             <div className='ProductId'>{obj.ProductId}</div>
-            <div className='ProductName'>{obj.ProductName}</div>
+            <div className='ProductName' style={{color : (obj.stockSize<25)?"red":"black"}}>{obj.ProductName}</div>
             <div className='stockSize'>{obj.stockSize}</div>
             <button className='analyze-button' value={obj.ProductId} onClick={()=>fetchProduct(obj.ProductId)}>Analyze</button>
             
