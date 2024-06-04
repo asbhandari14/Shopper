@@ -10,7 +10,9 @@ const Footer = (props) => {
         color : (props.mode === "black")?"white":"",
     }
 
-    if(useLocation().pathname === "/cart"){
+    let path = useLocation().pathname;
+
+    if(path === "/admin" || path === "/admin/analyze" || false){
         return null;
     }
     
