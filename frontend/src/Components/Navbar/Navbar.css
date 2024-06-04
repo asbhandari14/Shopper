@@ -99,11 +99,11 @@
     display: none;
     width: 100%;
     height: auto;
-    padding: 2rem 0;
+    /* padding: 2rem 0; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    /* gap: 2rem; */
     list-style : none;
     font-size: large;
     border-bottom: 3px solid black;
@@ -112,6 +112,22 @@
     & .link{
         text-decoration: none;
     }
+
+    & li{
+        /* background: red; */
+    width: 100vw;
+    padding: 1.2rem;
+    display: grid;
+    /* border: 2px solid black; */
+    place-items: center;
+    border-collapse: separate;
+    border-bottom: 0;
+    }
+}
+
+.resp_nav li:hover{
+    background-color: grey;
+    color: black;
 }
 
 /** ========================================  Start for the Responsive Code  ========================================= */

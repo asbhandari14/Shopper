@@ -76,13 +76,13 @@
 
 @media screen and (max-width: 440px) {
     .item{
-        width: 280px;
-        padding: 1rem 2rem;
+        width: 150px;
+        padding: 1rem 1rem;
     }
     .item-img{
         & img{
             width: 100%;
-            height: auto;
+            height: 150px;
         }
     }
 }

@@ -72,13 +72,10 @@ const Signup = (props) => {
           <button onClick={()=>{
             sendUserData();
           }}>Continue</button>
-          <p className='signupPage-login' style={changeColor}>Already have an account ? <Link to="/login"> <span> Login Here </span> </Link> </p>
-
-          <div className="signupPage-agree">
+         <div className="signup-agree">
           {/* <input type="checkbox" /> */}
-          <p style={{color : (props.mode === "black")?"white":""}}>By continuing I agree to the terms of use & privacy policy</p>
+          <p style={changeColor}>By continuing I agree to the terms of use & privacy policy</p>
           </div>
-
         </div>
       </div>
     </div>

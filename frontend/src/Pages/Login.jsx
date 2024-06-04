@@ -2,6 +2,7 @@ import React from 'react'
 import "./Login.css"                                 // This page created yester 
 import { useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 const Login = (props) => {
   const changeBackground={
     backgroundColor : (props.mode === "black")?"#3A3B3C":"white",
@@ -53,9 +54,12 @@ const Login = (props) => {
           {}
           <button onClick={sendUserData}>Continue</button>
 
-          <div className="loginsignup-agree">
+        
+          <p className='signupPage-login' style={changeColor}>Create a new account ? <Link to="/signup"> <span> Sign up Here </span> </Link> </p>
+
+          <div className="signupPage-agree">
           {/* <input type="checkbox" /> */}
-          <p style={changeColor}>By continuing I agree to the terms of use & privacy policy</p>
+          <p style={{color : (props.mode === "black")?"white":""}}>By continuing I agree to the terms of use & privacy policy</p>
           </div>
 
         </div>

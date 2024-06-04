@@ -17,7 +17,7 @@ const Item = (props) => {
                   <Link to={`/product/${props.id}`}> <img src={props.image} alt="" onClick={()=>{ window.scrollTo(0, 0)}} /> </Link>
             </div>
             <div className="item-heading">
-                  <Link to={`/product/${props.id}`}>  <p id="title" style={{color:"#777"}}>{props.name}</p>  </Link>
+                  <Link to={`/product/${props.id}`}>  <p id="title" style={{color:"#777"}}>{(props.name.length > 40)?props.name.substring(0, 40 - 3) + "..." : props.name}</p>  </Link>
             </div>
             
 
