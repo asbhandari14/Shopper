@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Newsletter.css"
 
 const Newsletter = () => {
+  const [email, setEmail] = useState();
   return (
     <>
 
@@ -15,9 +16,10 @@ const Newsletter = () => {
 
 
                 <div className='newsletter_box_email'>
-                    <input type="email" placeholder='Your Email id' />
-                    <button>Subscribe</button>
+                    <input id="input" type="email" placeholder='Your Email id' />
+                    <button onClick={()=>{setEmail(document.querySelector("#input").value)}}>Subscribe</button>
                 </div>
+                {console.log("Your Newsletter email id = ", email)}
             </div>
             
         </div>
