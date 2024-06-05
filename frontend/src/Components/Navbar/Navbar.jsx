@@ -34,7 +34,7 @@ const Navbar = (props) => {
 
   let path = useLocation().pathname;
 
-  if(path === "/admin" || path === "/admin/analyze" || false){
+  if(path === "/admin" || path === "/admin/analyze" || path === "/adminAdding"||false){
     return null;
   }
 
