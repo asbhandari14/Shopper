@@ -25,7 +25,7 @@ const Footer = (props) => {
         <div className="panel">
             <div className="panel_upper">
                 <img src={logo} alt="ecommerce_logo" />
-                <h4 style={{fontWeight: "bolder"}}>Ecomm</h4>
+                <h4 style={{fontSize : "larger", fontWeight: "bolder"}}>Ecomm</h4>
             </div>
             <div className="panel_lower">
                <p > Wear the premium tshirts, hoddies, sweatshirts, zipper and apparals </p>
@@ -41,7 +41,7 @@ const Footer = (props) => {
 
         <div className="panel">
             <h4 style={{fontWeight: "bolder"}}> CUSTOMER SERVICE </h4>
-            <p>Contact US</p>
+            <Link to="/contact"><p>Contact US</p></Link>
             <p>About Us</p>
             <p>Return Policy</p>
         </div>

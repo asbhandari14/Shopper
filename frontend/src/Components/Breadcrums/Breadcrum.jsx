@@ -11,11 +11,11 @@ const Breadcrum = (props) => {
   return (
     <div className="breadcrum" style={{color: (props.mode==="black")?"yellow":"black"}}>
       <div className="breadcrum_inner">
-        <Link to="/">  HOME <img src={arrow_icon} alt="" />  </Link>
-         <Link to="/">SHOP <img src={arrow_icon} alt="" />  </Link>
+        <Link to="/"><p>  HOME <img src={arrow_icon} alt="" /></p>  </Link>
+         <Link to="/"><p>SHOP <img src={arrow_icon} alt="" /> </p> </Link>
         { console.log(category)}
-         <Link to={`/${category}`}> {product.tags[0]} <img src={arrow_icon} alt="" /> </Link>
-           {product.tags[1] } {product.tags[2]}
+         <Link to={`/${category}`}><p> {product.tags[0]} <img src={arrow_icon} alt="" /></p> </Link>
+          <p> {product.tags[1] } <span>{product.tags[2]}</span></p>
         {console.log(product)}
         </div>
     </div>

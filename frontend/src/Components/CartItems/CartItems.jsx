@@ -92,7 +92,7 @@ const CartItems = (props) => {
           </div>
 
           
-          <Link to="/checkout"> <button id='proceedBtn' onClick={()=>{getProductInfo(cartInfoSection()); window.scrollTo(0, 0)}}> CHECKOUT</button> </Link>
+          <Link to="/checkout"> <button id='proceedBtn' onClick={()=>{getProductInfo(cartInfoSection()); window.scrollTo(0, 0)}} style={{backgroundColor: (props.mode==="black")?"black": "white"}}> CHECKOUT</button> </Link>
 
         </div>
       </div>

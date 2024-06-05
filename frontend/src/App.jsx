@@ -17,6 +17,7 @@ import Analyze from "./Pages/Analyze";
 import { AnalysisChart } from "./Pages/AnalysisChart";
 import AdminPanel from "./Pages/AdminPanel";
 import AdminAddingPage from "./Pages/AdminAddingPage";
+import Contact from "./Pages/Contact";
 const App = () => {
   const [modes, setModes] = useState("white");
 
@@ -53,10 +54,11 @@ const App = () => {
       <Route path="/signup" element={<Signup mode={modes}/>}  />                         
       <Route path="/login" element={<Login mode={modes}/>}  />   
       <Route path="/checkout" element={<Checkout mode={modes}/>}  />                              
-      <Route path="/analysis" element={<AnalysisChart mode={modes}/>}  />                                                   
-      <Route path="/admin/analyze" element={<Analyze mode={modes}/>}  />                                                   
+      <Route path="/analysis" element={<AnalysisChart mode={modes}/>}/>
+      <Route path="/admin/analyze" element={<Analyze mode={modes}/>}/>
       <Route path="/admin" element={<AdminPanel mode={modes}/>}  />                                                   
-      <Route path="/adminAdding" element={<AdminAddingPage mode={modes}/>}  />                                                   
+      <Route path="/adminAdding" element={<AdminAddingPage mode={modes}/>}  />                                                                
+      <Route path="/contact" element={<Contact mode={modes}/>}  />                                                   
 
     </Routes>
     <Footer mode={modes} />

@@ -23,9 +23,9 @@ const Item = (props) => {
 
             {/* {console.log(`Hello I am the ${mode}`)} */}
             <div className="item-prices">
-                  <div className="item-price-new"> &#8377;{props.new_price}</div>
+                  <div className="item-price-new"> &#8377;{(props.new_price < props.old_price)?props.new_price:props.old_price}</div>
 
-                  <div className="item-price-old"> &#8377;{props.old_price}</div>
+                  <div className="item-price-old"> &#8377;{(props.new_price < props.old_price)?props.old_price:props.new_price}</div>
             </div>
         
     </div>:null

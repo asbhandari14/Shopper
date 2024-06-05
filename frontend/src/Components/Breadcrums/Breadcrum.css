@@ -16,7 +16,16 @@
     align-items: center;
     text-align: center;
     gap: 1rem;
-    /* background-color: blue; */
+
+    & p{
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+
+        & img{
+            font-size: small;
+        }
+    }
 }
 
 @media screen and (max-width: 600px) {
