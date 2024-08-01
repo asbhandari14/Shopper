@@ -16,10 +16,10 @@
 
 .loginsignup-container{
     width: 30%;
-    height: 80%;
+    height: auto;
     background-color: white;
-    margin: auto;
-    padding: 10px 13px;
+    margin:auto;
+    padding: 3rem 13px;
     text-align: center;
     border-radius: 12px;
 }
@@ -82,18 +82,22 @@
 @media screen and (max-width: 1500px) {
     .loginsignup-container{
         width: 30%;
+        height: auto;
     }
 }
 
 @media screen and (max-width: 1000px) {
     .loginsignup-container{
         width: 60%;
+        height: auto;
     }
 }
 
 @media screen and (max-width: 700px) {
     .loginsignup-container{
         width: 60%;
+        height: auto;
+        
     }
 }
 
@@ -101,5 +105,6 @@
 @media screen and (max-width: 500px) {
     .loginsignup-container{
         width: 90%;
+        height: auto;
     }
 }

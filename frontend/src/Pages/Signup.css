@@ -16,10 +16,10 @@
 
 .signupPage-container{
     width: 30%;
-    height: 80%;
+    height: auto;
     background-color: white;
     margin: auto;
-    padding: 10px 13px;
+    padding: 3rem 13px;
     border-radius: 12px;
 }
 
